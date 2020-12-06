@@ -5,16 +5,16 @@
              >
 
     <StackLayout>
-        <Label Text="Recbiendo Datos"/>
+        <Label Text="Recibiendo Datos"/>
         <ScrollView>
             <StackLayout>
-                <ListView>
+                <ListView x:Name="listItems">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout>
-                                    <Label Text="{Binding Nombre}"/>
-                                    <Label Text="{Binding Apellido}"/>
+                                    <Label Text="{Binding title}"/>
+                                    <Label Text="{Binding id}"/>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
