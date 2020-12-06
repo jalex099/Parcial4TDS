@@ -1,0 +1,7 @@
+C:\Users\JALEX\Documents\Xamarin\Parcial4TDS\Parcial4TDS\Parcial4TDS\bin\Debug\netstandard2.0\Parcial4TDS.deps.json
+C:\Users\JALEX\Documents\Xamarin\Parcial4TDS\Parcial4TDS\Parcial4TDS\bin\Debug\netstandard2.0\Parcial4TDS.dll
+C:\Users\JALEX\Documents\Xamarin\Parcial4TDS\Parcial4TDS\Parcial4TDS\obj\Debug\netstandard2.0\Parcial4TDS.csprojAssemblyReference.cache
+C:\Users\JALEX\Documents\Xamarin\Parcial4TDS\Parcial4TDS\Parcial4TDS\obj\Debug\netstandard2.0\App.xaml.g.cs
+C:\Users\JALEX\Documents\Xamarin\Parcial4TDS\Parcial4TDS\Parcial4TDS\obj\Debug\netstandard2.0\MainPage.xaml.g.cs
+C:\Users\JALEX\Documents\Xamarin\Parcial4TDS\Parcial4TDS\Parcial4TDS\obj\Debug\netstandard2.0\Parcial4TDS.AssemblyInfoInputs.cache
+C:\Users\JALEX\Documents\Xamarin\Parcial4TDS\Parcial4TDS\Parcial4TDS\obj\Debug\netstandard2.0\Parcial4TDS.AssemblyInfo.cs
