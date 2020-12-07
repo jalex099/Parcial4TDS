@@ -12,3 +12,4 @@ C:\Users\JALEX\Documents\Xamarin\Parcial4TDS\Parcial4TDS\Parcial4TDS\obj\Debug\n
 C:\Users\JALEX\Documents\Xamarin\Parcial4TDS\Parcial4TDS\Parcial4TDS\obj\Debug\netstandard2.0\Parcial4TDS.dll
 C:\Users\JALEX\Documents\Xamarin\Parcial4TDS\Parcial4TDS\Parcial4TDS\obj\Debug\netstandard2.0\ref\Parcial4TDS.dll
 C:\Users\JALEX\Documents\Xamarin\Parcial4TDS\Parcial4TDS\Parcial4TDS\obj\Debug\netstandard2.0\Parcial4TDS.pdb
+C:\Users\JALEX\Documents\Xamarin\Parcial4TDS\Parcial4TDS\Parcial4TDS\obj\Debug\netstandard2.0\Insert.xaml.g.cs

@@ -39,13 +39,13 @@ namespace Parcial4TDS
 
             foreach (var element in items)
             {
-                Data.Add(new Models.Data()
+                /*Data.Add(new Models.Data()
                 {
                     userId = element.userId,
                     id = element.id,
                     title = element.title,
                     completed = element.completed
-                });
+                });*/
             }
 
             listItems.ItemsSource = Data;

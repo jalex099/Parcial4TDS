@@ -10,7 +10,7 @@ namespace Parcial4TDS
         {
             InitializeComponent();
 
-            MainPage = new MainPage();
+            MainPage = new Insert();
         }
 
         protected override void OnStart()
