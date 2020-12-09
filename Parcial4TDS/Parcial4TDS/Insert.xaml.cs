@@ -38,7 +38,15 @@ namespace Parcial4TDS
             StringContent sendData = new StringContent(jsonData, Encoding.UTF8, "application/json");
             HttpResponseMessage response = null;
             response = await cli.PostAsync(_URL, sendData);
-            Debug.WriteLine(response);
+            if (response.IsSuccessStatusCode)
+            {
+                await DisplayAlert("Success", "Se inserto correctamente", "Ok");
+                await Navigation.PushModalAsync(new NavigationPage(new MainPage()));
+            }
+            else
+            {
+                await DisplayAlert("Error", "No se inserto", "Ok");
+            }
         }
     }
 }

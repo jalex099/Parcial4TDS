@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Parcial4TDS.EditPage">
+    <ContentPage.Content>
+        <StackLayout>
+            <Label x:Name="lblIdPersona" Text="{Binding IdPersona}"/>
+            <Label Text="Nombre"/>
+            <Entry x:Name="txtNombre" Text="{Binding Nombre}"/>
+            
+            <Label Text="Apellido"/>
+            <Entry x:Name="txtApellido" Text="{Binding Apellido}"/>
+            
+            <Label Text="Direccion"/>
+            <Entry x:Name="txtDireccion" Text="{Binding Direccion}"/>
+            
+            <Label Text="Telefono"/>
+            <Entry x:Name="txtTelefono" Text="{Binding Telefono}"/>
+
+            <Button Text="Editar"
+                    x:Name="btnEditar"
+                    Clicked="btnEditar_Clicked"/>
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

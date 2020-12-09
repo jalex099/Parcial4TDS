@@ -26,7 +26,7 @@ namespace Parcial4TDS
         public MainPage()
         {
             InitializeComponent();
-            _URL = "https://jsonplaceholder.typicode.com/todos/";
+            _URL = "http://juanmajano-002-site5.btempurl.com/api/Datos/";
             cli = new HttpClient();
             Data = new ObservableCollection<Models.Data>();
             getData();
@@ -34,21 +34,65 @@ namespace Parcial4TDS
 
         public async void getData()
         {
+            Data = new ObservableCollection<Models.Data>();
             var getData = await cli.GetStringAsync(_URL);
             var items = JsonConvert.DeserializeObject<List<Models.Data>>(getData);
 
             foreach (var element in items)
             {
-                /*Data.Add(new Models.Data()
+                Data.Add(new Models.Data()
                 {
-                    userId = element.userId,
-                    id = element.id,
-                    title = element.title,
-                    completed = element.completed
-                });*/
+                    IdPersona = element.IdPersona,
+                    Nombre = element.Nombre,
+                    Apellido = element.Apellido,
+                    Direccion = element.Direccion,
+                    Telefono = element.Telefono
+                });
             }
 
             listItems.ItemsSource = Data;
+        }
+
+        private async void btnEliminar_Clicked(object sender, EventArgs e)
+        {
+            var objetoBoton = (Button)sender;
+            var contenido = (Models.Data)objetoBoton.CommandParameter;
+            string _URLDelete = _URL + contenido.IdPersona;
+            bool confirm = await DisplayAlert("DELETE", "Eliminara registro "+contenido.IdPersona, "Si", "No");
+            
+
+            if (confirm)
+            {
+                HttpResponseMessage response = await cli.DeleteAsync(_URLDelete);
+                if (response.IsSuccessStatusCode)
+                {
+                    getData();
+                }
+                else
+                {
+                    await DisplayAlert("Error", "No se elimino al registro " + contenido.IdPersona, "Ok");
+                }
+            }
+            else
+            {
+                await DisplayAlert("Error", "Se cancelo la eliminacion", "Ok");
+            }
+        }
+
+        private void btnEditar_Clicked(object sender, EventArgs e)
+        {
+            var objetoBoton = (Button)sender;
+            var contenido = (Models.Data)objetoBoton.CommandParameter;
+
+            Navigation.PushAsync(new EditPage()
+            {
+                BindingContext = contenido
+            });
+        }
+
+        private void btnAdd_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Insert());
         }
     }
 }

@@ -8,13 +8,23 @@
         <Label Text="Recibiendo Datos"/>
         <ScrollView>
             <StackLayout>
-                <ListView x:Name="listItems">
+                <ListView x:Name="listItems" SelectionMode="None" HasUnevenRows="True">
                     <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout>
-                                    <Label Text="{Binding title}"/>
-                                    <Label Text="{Binding id}"/>
+                                    <Label Text="{Binding Nombre}"/>
+                                    <Label Text="{Binding Apellido}"/>
+                                    <StackLayout Orientation="Horizontal">
+                                        <Button Text="Eliminar" 
+                                                x:Name="btnEliminar" 
+                                                Clicked="btnEliminar_Clicked"
+                                                CommandParameter="{Binding .}"/>
+                                        <Button Text="Editar"
+                                                x:Name="btnEditar"
+                                                Clicked="btnEditar_Clicked"
+                                                CommandParameter="{Binding .}"/>
+                                    </StackLayout>
                                 </StackLayout>
                             </ViewCell>
                         </DataTemplate>
@@ -22,6 +32,9 @@
                 </ListView>
             </StackLayout>
         </ScrollView>
+        <Button Text="Agregar"
+                x:Name="btnAdd"
+                Clicked="btnAdd_Clicked"/>
     </StackLayout>
 
 </ContentPage>
