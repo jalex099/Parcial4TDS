@@ -26,7 +26,7 @@ namespace Parcial4TDS
         public MainPage()
         {
             InitializeComponent();
-            _URL = "http://juanmajano-002-site5.btempurl.com/api/Datos/";
+            _URL = "http://hectorpaiz-001-site1.itempurl.com/api/Alumno/";
             cli = new HttpClient();
             Data = new ObservableCollection<Models.Data>();
             getData();
@@ -35,21 +35,25 @@ namespace Parcial4TDS
         public async void getData()
         {
             Data = new ObservableCollection<Models.Data>();
-            var getData = await cli.GetStringAsync(_URL);
-            var items = JsonConvert.DeserializeObject<List<Models.Data>>(getData);
-
+            var get = await cli.GetStringAsync(_URL);
+            var items = JsonConvert.DeserializeObject<List<Models.Data>>(get);
+            
+            if (items!= null) { 
             foreach (var element in items)
             {
                 Data.Add(new Models.Data()
                 {
-                    IdPersona = element.IdPersona,
+                    id_Alumno = element.id_Alumno,
                     Nombre = element.Nombre,
                     Apellido = element.Apellido,
-                    Direccion = element.Direccion,
-                    Telefono = element.Telefono
+                    Nota1 = element.Nota1,
+                    Nota2 = element.Nota2,
+                    Nota3 = element.Nota3,
+                    Promedio = element.Promedio,
+                    Estado = element.Estado
                 });
             }
-
+            }
             listItems.ItemsSource = Data;
         }
 
@@ -57,8 +61,8 @@ namespace Parcial4TDS
         {
             var objetoBoton = (Button)sender;
             var contenido = (Models.Data)objetoBoton.CommandParameter;
-            string _URLDelete = _URL + contenido.IdPersona;
-            bool confirm = await DisplayAlert("DELETE", "Eliminara registro "+contenido.IdPersona, "Si", "No");
+            string _URLDelete = _URL + contenido.id_Alumno;
+            bool confirm = await DisplayAlert("DELETE", "¿Eliminar registro "+contenido.id_Alumno+"?", "Si", "No");
             
 
             if (confirm)
@@ -70,12 +74,8 @@ namespace Parcial4TDS
                 }
                 else
                 {
-                    await DisplayAlert("Error", "No se elimino al registro " + contenido.IdPersona, "Ok");
+                    await DisplayAlert("Error", "No se elimino al registro " + contenido.id_Alumno, "Ok");
                 }
-            }
-            else
-            {
-                await DisplayAlert("Error", "Se cancelo la eliminacion", "Ok");
             }
         }
 
@@ -93,6 +93,11 @@ namespace Parcial4TDS
         private void btnAdd_Clicked(object sender, EventArgs e)
         {
             Navigation.PushAsync(new Insert());
+        }
+
+        private void btnInformacion_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new Datos());
         }
     }
 }

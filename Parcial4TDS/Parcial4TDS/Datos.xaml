@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="Parcial4TDS.Datos"
+             Title="Informacion">
+    <ContentPage.Content>
+        <StackLayout VerticalOptions="Center">
+            <Label FontSize="50" Margin="10,0,30,0" HorizontalTextAlignment="End" Text="JAVIER ALEXANDER MORALES MELARA"
+                HorizontalOptions="CenterAndExpand" />
+            <Label TextColor="Yellow" Text="MM18014" 
+                HorizontalOptions="CenterAndExpand" />
+        </StackLayout>
+    </ContentPage.Content>
+</ContentPage>

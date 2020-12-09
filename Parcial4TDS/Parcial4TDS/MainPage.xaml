@@ -2,10 +2,13 @@
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="Parcial4TDS.MainPage"
+             Title="Listado Alumnos"
              >
-
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="+"
+                     Clicked="btnAdd_Clicked" />
+    </ContentPage.ToolbarItems>
     <StackLayout>
-        <Label Text="Recibiendo Datos"/>
         <ScrollView>
             <StackLayout>
                 <ListView x:Name="listItems" SelectionMode="None" HasUnevenRows="True">
@@ -13,16 +16,83 @@
                         <DataTemplate>
                             <ViewCell>
                                 <StackLayout>
-                                    <Label Text="{Binding Nombre}"/>
-                                    <Label Text="{Binding Apellido}"/>
-                                    <StackLayout Orientation="Horizontal">
+                                    <Grid>
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                            <ColumnDefinition Width="*" />
+                                        </Grid.ColumnDefinitions>
+                                        <Grid.RowDefinitions>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                            <RowDefinition Height="*"/>
+                                        </Grid.RowDefinitions>
+                                        <Frame Grid.Row="0" Grid.ColumnSpan="3" BackgroundColor="white">
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="*"/>
+                                                </Grid.RowDefinitions>
+                                                <Label Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center"  Text="Nombre"/>
+                                                <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" Text="Apellido"/>
+                                                <Label Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="Center" Text="Estado"/>
+                                                <Label Grid.Row="1" Grid.Column="0" Text="{Binding Nombre}"/>
+                                                <Label Grid.Row="1" Grid.Column="1" Text="{Binding Apellido}"/>
+                                                <Label Grid.Row="1" Grid.Column="2" TextColor="red" HorizontalTextAlignment="Center" Text="{Binding Estado}"/>
+                                            </Grid>
+                                        </Frame>
+
+                                        <Frame Grid.Row="1" Grid.ColumnSpan="3" BackgroundColor="#aaa" >
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Grid.RowDefinitions>
+                                                    <RowDefinition Height="*"/>
+                                                    <RowDefinition Height="*"/>
+                                                </Grid.RowDefinitions>
+                                                <Label Grid.Row="0" Grid.Column="0" HorizontalTextAlignment="Center"  Text="Nota 1"/>
+                                                <Label Grid.Row="0" Grid.Column="1" HorizontalTextAlignment="Center" Text="Nota 2"/>
+                                                <Label Grid.Row="0" Grid.Column="2" HorizontalTextAlignment="Center" Text="Nota 3"/>
+                                                <Label Grid.Row="1" Grid.Column="0" HorizontalTextAlignment="Center"  Text="{Binding Nota1}"/>
+                                                <Label Grid.Row="1" Grid.Column="1" HorizontalTextAlignment="Center" Text="{Binding Nota2}"/>
+                                                <Label Grid.Row="1" Grid.Column="2" HorizontalTextAlignment="Center" Text="{Binding Nota3}"/>
+                                            </Grid>
+                                        </Frame>
+                                        <Frame Grid.Row="2" Grid.ColumnSpan="3" BackgroundColor="#555" >
+                                            <Grid>
+                                                <Grid.ColumnDefinitions>
+                                                    <ColumnDefinition Width="*" />
+                                                    <ColumnDefinition Width="*" />
+                                                </Grid.ColumnDefinitions>
+                                                <Label Grid.Column="0" HorizontalTextAlignment="Center"  Text="PROMEDIO: "/>
+                                                <Label Grid.Column="1" Text="{Binding Promedio}"/>
+
+                                            </Grid>
+
+                                        </Frame>
+
+                                    </Grid>
+                                    <StackLayout Orientation="Horizontal" HorizontalOptions="Center" Margin="0,0,0,10">
+
+                                        <Button Text="Editar"
+                                                BorderWidth="0"
+                                                x:Name="btnEditar"
+                                                TextColor="Green"
+                                                Clicked="btnEditar_Clicked"
+                                                CommandParameter="{Binding .}"/>
                                         <Button Text="Eliminar" 
+                                                BorderWidth="0"
+                                                TextColor="Red"
                                                 x:Name="btnEliminar" 
                                                 Clicked="btnEliminar_Clicked"
-                                                CommandParameter="{Binding .}"/>
-                                        <Button Text="Editar"
-                                                x:Name="btnEditar"
-                                                Clicked="btnEditar_Clicked"
                                                 CommandParameter="{Binding .}"/>
                                     </StackLayout>
                                 </StackLayout>
@@ -32,9 +102,11 @@
                 </ListView>
             </StackLayout>
         </ScrollView>
-        <Button Text="Agregar"
-                x:Name="btnAdd"
-                Clicked="btnAdd_Clicked"/>
+        <Button Text="Informacion" 
+                BorderWidth="0"
+                TextColor="Yellow"
+                x:Name="btnInformacion"
+                Clicked="btnInformacion_Clicked"/>
     </StackLayout>
 
 </ContentPage>

@@ -1,19 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Parcial4TDS.Insert">
+             xmlns:local="clr-namespace:Parcial4TDS.Validaciones"
+             x:Class="Parcial4TDS.Insert"
+             Title="Insertar Alumno">
     <ContentPage.Content>
-        <StackLayout>
-            <Label Text="Nombre"/>
-            <Entry x:Name="txtNombre"/>
-            <Label Text="Apellido"/>
-            <Entry x:Name="txtApellido"/>
-            <Label Text="Direccion"/>
-            <Entry x:Name="txtDireccion"/>
-            <Label Text="Telefono"/>
-            <Entry x:Name="txtTelefono"/>
-
-            <Button Text="Enviar" x:Name="btnEnviar" Clicked="btnEnviar_Clicked"/>
-        </StackLayout>
+        <ScrollView>
+            <StackLayout>
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                        <ColumnDefinition Width="*" />
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                        <RowDefinition Height="*"/>
+                    </Grid.RowDefinitions>
+                    <StackLayout Grid.Row="0" Grid.ColumnSpan="3" Margin="20,10,20,10">
+                        <Label Text="Nombre"/>
+                        <Entry x:Name="txtNombre"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Margin="20,10,20,10">
+                        <Label Text="Apellido"/>
+                        <Entry x:Name="txtApellido"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2" Grid.Column="0" Margin="10,10,10,10">
+                        <Label HorizontalTextAlignment="Center" Text="Nota 1"/>
+                        <Entry x:Name="txtNota1">
+                            <Entry.Behaviors>
+                                <local:DecimalValidatorBehavior x:Name="nota1"></local:DecimalValidatorBehavior>
+                            </Entry.Behaviors>
+                        </Entry>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2" Grid.Column="1" Margin="10,10,10,10">
+                        <Label HorizontalTextAlignment="Center" Text="Nota 2"/>
+                        <Entry x:Name="txtNota2">
+                            <Entry.Behaviors>
+                                <local:DecimalValidatorBehavior x:Name="nota2"></local:DecimalValidatorBehavior>
+                            </Entry.Behaviors>
+                        </Entry>
+                    </StackLayout>
+                    <StackLayout Grid.Row="2" Grid.Column="2" Margin="10,10,10,10">
+                        <Label HorizontalTextAlignment="Center" Text="Nota 3"/>
+                        <Entry x:Name="txtNota3">
+                            <Entry.Behaviors>
+                                <local:DecimalValidatorBehavior x:Name="nota3"></local:DecimalValidatorBehavior>
+                            </Entry.Behaviors>
+                        </Entry>
+                    </StackLayout>
+                    <StackLayout Grid.Row="3" Grid.ColumnSpan="3" Margin="10,0,0,10">
+                        <Label Text="Promedio"/>
+                        <Label x:Name="lblPromedio"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="4" Grid.ColumnSpan="3"  Margin="10,0,0,10">
+                        <Label Text="Estado"/>
+                        <Label x:Name="lblEstado"/>
+                    </StackLayout>
+                    <StackLayout Grid.Row="5" Grid.ColumnSpan="3">
+                        <Button Text="Calcular" BorderWidth="0" x:Name="btnCalcular" Clicked="btnCalcular_Clicked"/>
+                        <Button Text="Enviar" BorderWidth="0" x:Name="btnEnviar" Clicked="btnEnviar_Clicked"/>
+                    </StackLayout>
+                </Grid>
+                
+            </StackLayout>
+        </ScrollView>
     </ContentPage.Content>
 </ContentPage>

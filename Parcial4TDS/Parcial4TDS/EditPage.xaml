@@ -1,25 +1,73 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="Parcial4TDS.EditPage">
+             xmlns:local="clr-namespace:Parcial4TDS.Validaciones"
+             x:Class="Parcial4TDS.EditPage"
+             Title="Editar Alumno">
     <ContentPage.Content>
         <StackLayout>
-            <Label x:Name="lblIdPersona" Text="{Binding IdPersona}"/>
-            <Label Text="Nombre"/>
-            <Entry x:Name="txtNombre" Text="{Binding Nombre}"/>
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                    <ColumnDefinition Width="*" />
+                </Grid.ColumnDefinitions>
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                    <RowDefinition Height="*"/>
+                </Grid.RowDefinitions>
+                <StackLayout Grid.Row="0" Grid.ColumnSpan="3" Margin="20,10,20,10">
+                    <Label Text="idAlumno"/>
+                    <Label x:Name="lblId" Text="{Binding id_Alumno}"/>
+                    <Label Text="Nombre"/>
+                    <Entry x:Name="txtNombre" Text="{Binding Nombre}"/>
+                </StackLayout>
+                <StackLayout Grid.Row="1" Grid.ColumnSpan="3" Margin="20,10,20,10">
+                    <Label Text="Apellido"/>
+                    <Entry x:Name="txtApellido"  Text="{Binding Apellido}"/>
+                </StackLayout>
+                <StackLayout Grid.Row="2" Grid.Column="0" Margin="10,10,10,10">
+                    <Label HorizontalTextAlignment="Center" Text="Nota 1"/>
+                    <Entry x:Name="txtNota1"  Text="{Binding Nota1}">
+                        <Entry.Behaviors>
+                            <local:DecimalValidatorBehavior x:Name="nota1"></local:DecimalValidatorBehavior>
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
+                <StackLayout Grid.Row="2" Grid.Column="1" Margin="10,10,10,10">
+                    <Label HorizontalTextAlignment="Center" Text="Nota 2"/>
+                    <Entry x:Name="txtNota2"  Text="{Binding Nota2}">
+                        <Entry.Behaviors>
+                            <local:DecimalValidatorBehavior x:Name="nota2"></local:DecimalValidatorBehavior>
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
+                <StackLayout Grid.Row="2" Grid.Column="2" Margin="10,10,10,10">
+                    <Label HorizontalTextAlignment="Center" Text="Nota 3"/>
+                    <Entry x:Name="txtNota3"  Text="{Binding Nota3}">
+                        <Entry.Behaviors>
+                            <local:DecimalValidatorBehavior x:Name="nota3"></local:DecimalValidatorBehavior>
+                        </Entry.Behaviors>
+                    </Entry>
+                </StackLayout>
+                <StackLayout Grid.Row="3" Grid.ColumnSpan="3" Margin="10,0,0,10">
+                    <Label Text="Promedio"/>
+                    <Label x:Name="lblPromedio" Text="{Binding Promedio}"/>
+                </StackLayout>
+                <StackLayout Grid.Row="4" Grid.ColumnSpan="3"  Margin="10,0,0,10">
+                    <Label Text="Estado"/>
+                    <Label x:Name="lblEstado"  Text="{Binding Estado}"/>
+                </StackLayout>
+                <StackLayout Grid.Row="5" Grid.ColumnSpan="3">
+                    <Button Text="Calcular" BorderWidth="0" x:Name="btnCalcular" Clicked="btnCalcular_Clicked"/>
+                    <Button Text="Editar" BorderWidth="0" x:Name="btnEditar" Clicked="btnEditar_Clicked"/>
+                </StackLayout>
+            </Grid>
             
-            <Label Text="Apellido"/>
-            <Entry x:Name="txtApellido" Text="{Binding Apellido}"/>
-            
-            <Label Text="Direccion"/>
-            <Entry x:Name="txtDireccion" Text="{Binding Direccion}"/>
-            
-            <Label Text="Telefono"/>
-            <Entry x:Name="txtTelefono" Text="{Binding Telefono}"/>
-
-            <Button Text="Editar"
-                    x:Name="btnEditar"
-                    Clicked="btnEditar_Clicked"/>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
